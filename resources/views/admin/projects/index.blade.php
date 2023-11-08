@@ -10,7 +10,7 @@
         table-primary
         align-middle">
             <thead class="table-light">
-                <caption>Project</caption>
+
                 <tr>
                     <th>ID</th>
                     <th>Title</th>
@@ -42,10 +42,16 @@
 
                     </tr>
                 @endforelse
+
+
             </tbody>
             <tfoot>
 
             </tfoot>
+
         </table>
+        <div class=" mx-auto pb-8">
+            {{ $projects->links('pagination::bootstrap-5') }}
+        </div>
     </div>
 @endsection
