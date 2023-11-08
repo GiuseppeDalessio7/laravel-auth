@@ -1,6 +1,14 @@
 @extends('layouts.admin')
 
 @section('content')
+    @if (session('message'))
+        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <strong>Message: </strong> {{ session('message') }}
+        </div>
+    @endif
+
+
     <h1>All Project is here</h1>
     <div class="table-responsive">
         <table
@@ -32,6 +40,7 @@
                             <a href="" class=" btn btn-primary">Update</a>
                             <a href="" class=" btn btn-danger">Delete</a>
                         </td>
+
 
 
                     </tr>

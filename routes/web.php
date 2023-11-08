@@ -25,7 +25,7 @@ Route::get('/', function () {
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [ProjectController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
-    Route::resource('project', ProjectController::class);
+    Route::resource('project', ProjectController::class)->parameters(['projects' => 'post:slug']);
     /* all ruote start (admin.dashboard) or other */
 });
 

@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
+
+    protected $fillabe = ['title', 'slug', 'cover_image', 'descripiont'];
 }
