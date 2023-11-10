@@ -82,6 +82,13 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        if (!is_null($project->cover_image)) {
+            Storage::delete($project->cover_image);
+        }
+
+        // ELIMINA IL RECORD DAL DATABASE
+        $project->delete();
+
+        return view('admin.projects.index')->with('message', 'Well Done, Element Deleted Succeffully');
     }
 }

@@ -47,9 +47,9 @@
                             @endif
                         </td>
                         <td><a href="{{ route('admin.projects.show', $project->slug) }}" class=" btn btn-primary">View</a>
-                            <a href="{{ route('admin.projects.edit', $project->slug) }}" class=" btn btn-primary">Edit</a>
-                            <a href="{{ route('admin.projects.destroy', $project->slug) }}"
-                                class=" btn btn-danger">Delete</a>
+                            <a href="{{ route('admin.projects.edit', $project->slug) }}" class=" btn btn-dark">Edit</a>
+                            <a
+                                href="{{ route('admin.projects.destroy', $project->slug) }}"class=" btn btn-danger">Delete</a>
                         </td>
 
 
