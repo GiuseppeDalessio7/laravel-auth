@@ -41,7 +41,11 @@
                     <tr class="table-primary">
                         <td scope="row">{{ $project->id }}</td>
                         <td>{{ $project->title }}</td>
-                        <td> <img width="100" src="{{ $project->cover_image }}" alt=""></td>
+                        <td>
+                            @if ($project->cover_image)
+                                <img class="img-fluid w-25" src="{{ $project->cover_image }}" alt="">
+                            @endif
+                        </td>
                         <td><a href="{{ route('admin.projects.show', $project->slug) }}" class=" btn btn-primary">View</a>
                             <a href="{{ route('admin.projects.edit', $project->slug) }}" class=" btn btn-primary">Edit</a>
                             <a href="{{ route('admin.projects.destroy', $project->slug) }}"

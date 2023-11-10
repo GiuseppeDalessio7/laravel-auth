@@ -7,13 +7,13 @@
                 <div class="row">
                     <div class="col-6">
                         <h2>{{ $project->title }}</h2>
-                        <p>{{ $project->content }}</p>
+                        <p>{{ $project->description }}</p>
                         <img src="{{ $project->cover_image }}" alt="">
                     </div>
                     <div class="col-6">
                         @if ($project->cover_image)
-                            <img class="img-fluid" src="{{ asset('storage/placeholders' . $project->cover_image) }}"
-                                alt="">
+                            <img class="img-fluid"
+                                src="{{ asset('storage/app/public/placeholders' . $project->cover_image) }}" alt="">
                         @endif
                     </div>
                 </div>
