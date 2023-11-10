@@ -26,7 +26,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create', compact('projects'));
+        return view('admin.projects.create');
     }
 
     /**
@@ -34,14 +34,14 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        return view('admin.projects.store');
+
         $val_data['slug'] = Str::slug($request->title, '-');
         if ($request->has('cover_image')) {
             $path = Storage::put('posts_images', $request->cover_image);
             $val_data['cover_image'] = $path;
         }
         Project::created($val_data);
-        return to_route('admin.projects.index')->whit('message', 'Post Created Success');
+        return to_route('admin.projects.index')->with('message', 'Post Created Success');
     }
 
     /**
@@ -49,7 +49,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        return view('admin.projects.store', compact('project'));
+        return view('admin.projects.show', compact('project'));
     }
 
     /**

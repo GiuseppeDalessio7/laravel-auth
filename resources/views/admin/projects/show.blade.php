@@ -8,7 +8,7 @@
                     <div class="col-6">
                         <h2>{{ $project->title }}</h2>
                         <p>{{ $project->content }}</p>
-
+                        <img src="{{ $project->cover_image }}" alt="">
                     </div>
                     <div class="col-6">
                         @if ($project->cover_image)
@@ -23,7 +23,8 @@
         </div>
         <div class="row mt-4">
             <div class="col-4 m-auto text-center">
-                <a class="btn btn-success" href="{{ route('admin.dashboard') }}">Back</a>
+                <a class="btn btn-success" href="{{ route('admin.projects.index') }}">Back to Projects</a>
             </div>
         </div>
     </div>
+@endsection

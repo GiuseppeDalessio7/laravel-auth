@@ -5,11 +5,12 @@
         <h2 class="fs-4 text-secondary my-4">
             {{ __('Dashboard') }}
         </h2>
-        <h1>ciao</h1>
+
         <div class="row justify-content-center">
             <div class="col">
                 <div class="card">
-                    <div class="card-header">{{ __('User Dashboard') }}</div>
+                    <div class="card-header"><span class="text-danger">{{ Auth::user()->name }}</span>{{ __(' Dashboard') }}
+                    </div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -18,7 +19,7 @@
                             </div>
                         @endif
 
-                        {{ __('You are logged in!') }}
+                        Hi <span class="text-danger">{{ Auth::user()->name }}</span> {{ __('You are logged in!') }}
                     </div>
                 </div>
             </div>

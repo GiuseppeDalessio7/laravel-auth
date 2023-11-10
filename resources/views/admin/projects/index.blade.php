@@ -10,6 +10,11 @@
 
 
     <h1>All Project is here</h1>
+
+    <div class="controls">
+        <a class="btn btn-info text-white" href="{{ route('admin.projects.create') }}">AddNew</a>
+    </div>
+
     <div class="table-responsive">
         <table
             class="table table-striped
@@ -24,6 +29,7 @@
                     <th>Title</th>
                     <th>Cover_Image</th>
 
+
                     <th class="">action</th>
 
 
@@ -35,10 +41,11 @@
                     <tr class="table-primary">
                         <td scope="row">{{ $project->id }}</td>
                         <td>{{ $project->title }}</td>
-                        <td>{{ $project->cover_image }}</td>
-                        <td><a href="" class=" btn btn-primary">View</a>
-                            <a href="" class=" btn btn-primary">Update</a>
-                            <a href="" class=" btn btn-danger">Delete</a>
+                        <td> <img width="100" src="{{ $project->cover_image }}" alt=""></td>
+                        <td><a href="{{ route('admin.projects.show', $project->slug) }}" class=" btn btn-primary">View</a>
+                            <a href="{{ route('admin.projects.edit', $project->slug) }}" class=" btn btn-primary">Edit</a>
+                            <a href="{{ route('admin.projects.destroy', $project->slug) }}"
+                                class=" btn btn-danger">Delete</a>
                         </td>
 
 

@@ -23,9 +23,9 @@ Route::get('/', function () {
 /* ROTTE ADMIN */
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/', [ProjectController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+    Route::get('/', [DashBoardController::class, 'index'])->name('dashboard');
 
-    Route::resource('project', ProjectController::class)->parameters(['projects' => 'post:slug']);
+    Route::resource('projects', ProjectController::class)->parameters(['projects' => 'project:slug']);
     /* all ruote start (admin.dashboard) or other */
 });
 
