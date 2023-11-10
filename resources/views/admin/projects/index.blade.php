@@ -57,11 +57,11 @@
 
                             <!-- Modal di eliminazione -->
                             <div class="modal fade" id="modalEliminaProgetto" tabindex="-1" role="dialog"
-                                aria-labelledby="modalTitle" aria-hidden="true">
+                                aria-labelledby="mydeletemodal4me" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="modalTitle">Conferma eliminazione</h5>
+                                            <h5 class="modal-title" id="mydeletemodal4me">Conferma eliminazione</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Chiudi"></button>
                                         </div>
