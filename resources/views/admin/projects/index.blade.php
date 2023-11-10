@@ -28,8 +28,6 @@
                     <th>ID</th>
                     <th>Title</th>
                     <th>Cover_Image</th>
-
-
                     <th class="">action</th>
 
 
@@ -46,7 +44,8 @@
                                 <img class="img-fluid w-25" src="{{ $project->cover_image }}" alt="">
                             @endif
                         </td>
-                        <td><a href="{{ route('admin.projects.show', $project->slug) }}" class=" btn btn-primary">View</a>
+                        <td>
+                            <a href="{{ route('admin.projects.show', $project->slug) }}" class=" btn btn-primary">View</a>
                             <a href="{{ route('admin.projects.edit', $project->slug) }}" class=" btn btn-dark">Edit</a>
                             <a
                                 href="{{ route('admin.projects.destroy', $project->slug) }}"class=" btn btn-danger">Delete</a>

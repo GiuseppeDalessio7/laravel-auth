@@ -34,7 +34,7 @@
                         <label for="git_link" class="form-label">git link</label>
                         <input type="text" name="git_link" id="git_link" class="form-control"
                             @error('git_link') is-invalid @enderror placeholder="git_link" aria-describedby="helpergit_link"
-                            value="{{ old('git_link', $project->git_link) }}">
+                            value="{{ old('git_link') }}">
                         <small id="helpergit_link" class="text-muted">type your git project link</small>
                     </div>
                     @error('git_link')
@@ -47,7 +47,7 @@
                         <label for="project_link" class="form-label">external link</label>
                         <input type="text" name="project_link" id="project_link" class="form-control"
                             @error('project_link') is-invalid @enderror placeholder="project_link"
-                            aria-describedby="helperproject_link" value="{{ old('project_link', $project->project_link) }}">
+                            aria-describedby="helperproject_link" value="{{ old('project_link') }}">
                         <small id="helperproject_link" class="text-muted">type your project external link</small>
                     </div>
                     @error('project_link')
