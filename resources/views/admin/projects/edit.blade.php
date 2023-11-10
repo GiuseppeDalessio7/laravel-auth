@@ -66,8 +66,7 @@
 
                 <div class="mb-3 ">
                     <div>
-                        <img width="200" src="{{ asset('storage/placeholders/' . $project->cover_image) }}"
-                            alt="">
+                        <img width="200" src="{{ asset('/storage/' . $project->cover_image) }}" alt="">
                     </div>
                     <label for="cover_image" class="form-label">Choose file</label>
                     <input type="file" class="form-control" @error('cover_image') is-invalid @enderror name="cover_image"

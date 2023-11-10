@@ -41,9 +41,9 @@ class ProjectController extends Controller
 
         if ($request->has('cover_image')) {
 
-            $complete_path = Storage::put('placeholders', $request->cover_image);
-            $path = strstr($complete_path, '/');
-            $val_data['cover_image'] = $path;
+            $complete_path = Storage::disk('public')->put('placeholders', $request->cover_image);
+            //$path = strstr($complete_path, '/');
+            $val_data['cover_image'] = $complete_path;
         }
 
         //dd($val_data);
@@ -91,6 +91,6 @@ class ProjectController extends Controller
         // ELIMINA IL RECORD DAL DATABASE
         $project->delete();
 
-        return view('admin.projects.index')->with('message', 'Well Done, Element Deleted Succeffully');
+        return to_route('admin.projects.index')->with('message', 'post deleted success!');
     }
 }

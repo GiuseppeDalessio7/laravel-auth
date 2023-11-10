@@ -28,7 +28,7 @@
                     <th>ID</th>
                     <th>Title</th>
                     <th>Cover_Image</th>
-                    <th class="">action</th>
+                    <th>action</th>
 
 
                 </tr>
@@ -41,14 +41,53 @@
                         <td>{{ $project->title }}</td>
                         <td>
                             @if ($project->cover_image)
-                                <img class="img-fluid w-25" src="{{ $project->cover_image }}" alt="">
+                                <img class="img-fluid w-25"
+                                    src="{{ strstr($project->cover_image, 'http') ? $project->cover_image : asset('/storage/' . $project->cover_image) }}"
+                                    alt="">
                             @endif
                         </td>
                         <td>
                             <a href="{{ route('admin.projects.show', $project->slug) }}" class=" btn btn-primary">View</a>
                             <a href="{{ route('admin.projects.edit', $project->slug) }}" class=" btn btn-dark">Edit</a>
-                            <a
-                                href="{{ route('admin.projects.destroy', $project->slug) }}"class=" btn btn-danger">Delete</a>
+                            <!-- Pulsante per aprire la modal di eliminazione -->
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#modalEliminaProgetto">
+                                Delete
+                            </button>
+
+                            <!-- Modal di eliminazione -->
+                            <div class="modal fade" id="modalEliminaProgetto" tabindex="-1" role="dialog"
+                                aria-labelledby="modalTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="modalTitle">Conferma eliminazione</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Chiudi"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            are you sure you want to delete {{ $project->title }}?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <!-- Pulsante per chiudere la modal -->
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <!-- Pulsante per confermare l'eliminazione -->
+                                            <form action="{{ route('admin.projects.destroy', $project->slug) }}"
+                                                method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
                         </td>
 
 
